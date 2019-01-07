@@ -55,6 +55,8 @@ def max_subarray(nums, low, high):
 
 
 def find_max_subarray2(lists):
+    if not lists:
+        return lists
     low, high, _sum = max_subarray(lists, 0, len(lists)-1)
     return lists[low:high]
 
@@ -68,3 +70,12 @@ if __name__ == '__main__':
     print(l)
     print(find_max_subarray1(l))
     print(find_max_subarray2(l))
+    l = []
+    print(l)
+    print(find_max_subarray1(l))
+    print(find_max_subarray2(l))
+    l = [-1, 5, 6, 9, 10, -9, -8, 100, -200]
+    print(l)
+    print(find_max_subarray1(l))
+    print(find_max_subarray2(l))
+
