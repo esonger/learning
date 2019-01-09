@@ -55,10 +55,16 @@ def build_min_heap(lists, size):
 
 
 def heap_sort(lists, reverse=False):
-    lists = build_min_heap(lists, len(lists))
-    for index in range(len(lists), 0, -1):
-        lists[0], lists[index - 1] = lists[index - 1], lists[0]
-        min_heapify(lists, 0, index - 1)
+    if reverse:
+        lists = build_min_heap(lists, len(lists))
+        for index in range(len(lists), 0, -1):
+            lists[0], lists[index - 1] = lists[index - 1], lists[0]
+            min_heapify(lists, 0, index - 1)
+    else:
+        lists = build_max_heap(lists, len(lists))
+        for index in range(len(lists), 0, -1):
+            lists[0], lists[index - 1] = lists[index - 1], lists[0]
+            max_heapify(lists, 0, index - 1)
     return lists
 
 
