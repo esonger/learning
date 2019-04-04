@@ -6,11 +6,13 @@
 class Node(object):
     def __init__(self, value):
         self.next = None
-        self.prev = None
         self.value = value
 
 class Queue(object):
     def __init__(self):
+        pass
+
+    def is_empty(self):
         pass
 
     def en_queue(self, value):
