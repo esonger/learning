@@ -114,18 +114,23 @@ class Dispatch(object):
         '''
         if instruction in self.INSTRUCTION:
             if instruction == 'T':
-                pass
+                time.sleep(1)
+                print('指令:[%s]' % instruction, '正在时间同步')
             elif instruction == 'L':
                 tank.direction -= 1
                 tank.direction = (tank.direction) % len(DIRECTION)
+                print('指令:[%s]' % instruction, '坦克向左转')
             elif instruction == 'R':
                 tank.direction += 1
                 tank.direction = (tank.direction) % len(DIRECTION)
+                print('指令:[%s]' % instruction, '坦克向右转')
             elif instruction == 'P':
                 tank.direction -= 2
                 tank.direction = (tank.direction) % len(DIRECTION)
+                print('指令:[%s]' % instruction, '坦克向后转')
             elif instruction == 'M':
                 tank.move()
+                print('指令:[%s]' % instruction, tank.now())
             else:
                 print('非指令')
         else:
@@ -143,9 +148,7 @@ if __name__ == '__main__':
     ---- 初始化完成开始追踪 -----
     '''.format(id(tank), DIRECTION[tank.direction], 'x:%d,y:%s' % (tank.x, tank.y)))
     for instruction in instructions:
-        time.sleep(1)
-        tank_temp = dispatch.deal_instruction(instruction, tank)
-        print('指令:[%s]' % instruction, tank_temp.now())
+        dispatch.deal_instruction(instruction, tank)
 
     print('''
         ---- 发射榴弹 -----
