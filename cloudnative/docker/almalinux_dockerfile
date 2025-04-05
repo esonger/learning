@@ -1,0 +1,4 @@
+FROM almalinux:latest
+# RUN yum install -y systemd
+CMD ["tail", "-f", "/dev/null"]
+# CMD ["/usr/lib/systemd/systemd"]
